@@ -44,7 +44,7 @@ public class NewCustomerScripts extends CommonTestCase {
 		loginPage.inputPass(passLogin);
 		homePage = loginPage.clickLogin();
 		verifyEqual(homePage.getTextWelcome(), "Welcome To Manager's Page of Guru99 Bank");
-		
+
 		cusName = "name123";
 		cusName2 = "name!@# ";
 		cusName3 = " namefgnsfn";
@@ -71,14 +71,14 @@ public class NewCustomerScripts extends CommonTestCase {
 	@Test
 	public void TC_01_emptyName() {
 		newCustomer.inputKeysCustomerName(Keys.TAB);
-		
+
 		verifyEqual(newCustomer.getMsgCustomerLabel(), "Customer name must not be blank");
 	}
-	
+
 	@Test
 	public void TC_02_numbericName() {
 		newCustomer.inputCustomerName(cusName);
-		
+
 		verifyEqual(newCustomer.getMsgCustomerLabel(), "Numbers are not allowed");
 	}
 
@@ -88,14 +88,14 @@ public class NewCustomerScripts extends CommonTestCase {
 
 		verifyEqual(newCustomer.getMsgCustomerLabel(), "Special characters are not allowed");
 	}
-	
+
 	@Test
 	public void TC_04_firstCharNameBlank() {
 		newCustomer.inputCustomerName(cusName3);
 
 		verifyEqual(newCustomer.getMsgCustomerLabel(), "First character can not have space");
 	}
-	
+
 	@Test
 	public void TC_05_addressBlank() {
 		newCustomer.inputCustomerName(cusName);
@@ -103,7 +103,7 @@ public class NewCustomerScripts extends CommonTestCase {
 		newCustomer.inputKeysAddress(Keys.TAB);
 		verifyEqual(newCustomer.getMsgAddress(), "Address Field must not be blank");
 	}
-	
+
 	@Test
 	public void TC_06_addressFirstBlank() {
 		newCustomer.inputCustomerName(cusName);
@@ -111,7 +111,7 @@ public class NewCustomerScripts extends CommonTestCase {
 		newCustomer.inputAddress(addressField);
 		verifyEqual(newCustomer.getMsgAddress(), "First character can not have space");
 	}
-	
+
 	@Test
 	public void TC_08_cityBlank() {
 		newCustomer.inputCustomerName(cusName);
@@ -120,90 +120,88 @@ public class NewCustomerScripts extends CommonTestCase {
 		newCustomer.inputKeysCity(Keys.TAB);
 		verifyEqual(newCustomer.getMsgCity(), "City Field must not be blank");
 	}
-	
+
 	@Test
 	public void TC_09_numbericCity() {
 		newCustomer.inputCity(cityField);
 		verifyEqual(newCustomer.getMsgCity(), "Numbers are not allowed");
 	}
-	
+
 	@Test
 	public void TC_10_specialCharCity() {
 		newCustomer.inputCity(cityField2);
 
 		verifyEqual(newCustomer.getMsgCity(), "Special characters are not allowed");
 	}
-	
+
 	@Test
 	public void TC_11_firstCharCityBlank() {
 		newCustomer.inputCity(cityField3);
 
 		verifyEqual(newCustomer.getMsgCity(), "First character can not have space");
 	}
-	
+
 	@Test
 	public void TC_12_stateBlank() {
 		newCustomer.inputKeysState(Keys.TAB);
 		verifyEqual(newCustomer.getMsgState(), "State must not be blank");
 	}
-	
+
 	@Test
 	public void TC_13_numbericState() {
-		newCustomer.inputState(stateField);;
+		newCustomer.inputState(stateField);
+		;
 		verifyEqual(newCustomer.getMsgState(), "Numbers are not allowed");
 	}
-	
+
 	@Test
 	public void TC_14_specialCharState() {
 		newCustomer.inputState(stateField2);
 		verifyEqual(newCustomer.getMsgState(), "Special characters are not allowed");
 	}
-	
+
 	@Test
 	public void TC_15_firstCharStateBlank() {
 		newCustomer.inputState(cityField3);
 		verifyEqual(newCustomer.getMsgState(), "First character can not have space");
 	}
-	
+
 	@Test
 	public void TC_16_characterPin() {
 		newCustomer.inputPin(pinfield);
 		verifyEqual(newCustomer.getMsgPin(), "Characters are not allowed");
 	}
-	
+
 	@Test
 	public void TC_17_pinBlank() {
 		newCustomer.inputKeysPin(Keys.TAB);
 		verifyEqual(newCustomer.getMsgPin(), "PIN Code must not be blank");
 	}
-	
+
 	@Test
 	public void TC_18_pin6Digit() {
 		newCustomer.inputPin(pinfield2);
 		verifyEqual(newCustomer.getMsgPin(), "PIN Code must have 6 Digits");
 	}
-	
+
 	@Test
 	public void TC_19_specialCharPin() {
 		newCustomer.inputPin(pinfield3);
 		verifyEqual(newCustomer.getMsgPin(), "Special characters are not allowed");
 	}
-	
+
 	@Test
 	public void TC_20_firstCharPinBlank() {
 		newCustomer.inputPin(pinfield4);
 		verifyEqual(newCustomer.getMsgPin(), "First character can not have space");
 	}
-	
+
 	@Test
 	public void TC_22_phoneBlank() {
 		newCustomer.inputKeysPhone(Keys.TAB);
 		verifyEqual(newCustomer.getMsgPhone(), "");
 	}
-	
-	
-	
-	
+
 	@AfterClass
 	public void afterClass() {
 

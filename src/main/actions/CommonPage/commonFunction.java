@@ -56,13 +56,11 @@ public class commonFunction extends BasePage{
 		driver.navigate().refresh();
 	}
 	
-	public void click(String locator) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public void click(WebElement element) {
 		element.click();
 	}
 	
-	public String getText(String locator) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public String getText(WebElement element) {
 		return element.getText();
 	}
 	
@@ -71,8 +69,7 @@ public class commonFunction extends BasePage{
 		element.clear();
 	}
 	
-	public void input(String locator, String value) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public void input(WebElement element, String value) {
 		element.sendKeys(value);
 	}
 	
@@ -192,8 +189,7 @@ public class commonFunction extends BasePage{
 		action.release();
 	}
 	
-	public void inputKeys(String locator, Keys key) {
-		WebElement element = driver.findElement(By.xpath(locator));
+	public void inputKeys(WebElement element, Keys key) {
 		element.sendKeys(key);
 
 	}
@@ -264,9 +260,9 @@ public class commonFunction extends BasePage{
 		wait.until(ExpectedConditions.presenceOfElementLocated(By.xpath(locator)));
 	}
 	
-	public void waitVisible(String locator) {
+	public void waitVisible(WebElement element) {
 		WebDriverWait wait = new WebDriverWait(driver, timeouts);
-		wait.until(ExpectedConditions.visibilityOfElementLocated(By.xpath(locator)));
+		wait.until(ExpectedConditions.visibilityOf(element));
 	}
 	
 	public void waitAlertPresence() {
